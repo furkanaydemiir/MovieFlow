@@ -30,7 +30,7 @@ interface MovieState {
 }
 const initialState: MovieState = {
     movies: [],
-    favorites: [],
+    favorites: JSON.parse(localStorage.getItem("favorites")||"[]"),
     loading: false,
     error: null,
 };
@@ -45,11 +45,16 @@ export const movieSlice = createSlice({
 
             const isExist = state.favorites.some(f => f.id === newid)
             if (isExist) return;
-
+        
             state.favorites.push(movie)
             localStorage.setItem("favorites", JSON.stringify(state.favorites));
             console.log(localStorage.getItem("favorites"))
 
+        },deleteMovieFromFavorite:(state,action)=>{
+            const newid = action.payload
+            const newFavorites = state.favorites.filter(m=>m.id!==newid);
+           state.favorites = newFavorites
+            localStorage.setItem("favorites",JSON.stringify(newFavorites));
         }
 
 
@@ -69,6 +74,6 @@ export const movieSlice = createSlice({
     }
 })
 
-export const { addMovieToFavorite } = movieSlice.actions
+export const { addMovieToFavorite,deleteMovieFromFavorite } = movieSlice.actions
 
 export default movieSlice.reducer
