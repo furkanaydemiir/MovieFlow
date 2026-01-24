@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 export default function ButtonAppBar() {
   return (
     <Box >
@@ -14,10 +15,10 @@ export default function ButtonAppBar() {
           </Typography>
           <Button
 
-            color="inherit">Ana Sayfa</Button>
+            color="inherit"><Link to="/" style={{textDecoration:"none",color:"inherit"}}>Ana Sayfa</Link></Button>
           <Button
-
-            color="inherit">Favorilerim</Button>
+ 
+            color="inherit"><Link to="/favorites" style={{textDecoration:"none",color:"inherit"}}>Favorilerim</Link></Button>
         </Toolbar>
 
       </AppBar>

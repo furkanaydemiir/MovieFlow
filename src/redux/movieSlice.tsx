@@ -30,7 +30,7 @@ interface MovieState {
 }
 const initialState: MovieState = {
     movies: [],
-    favorites:[],
+    favorites: [],
     loading: false,
     error: null,
 };
@@ -41,24 +41,34 @@ export const movieSlice = createSlice({
         addMovieToFavorite: (state, action) => {
             const newid = action.payload
             const movie = state.movies.find(m => m.id === newid);
-            if(!movie) return
+            if (!movie) return
 
-            const isExist = state.favorites.some(f=>f.id===newid)
-            if(isExist) return;
+            const isExist = state.favorites.some(f => f.id === newid)
+            if (isExist) return;
 
             state.favorites.push(movie)
+            localStorage.setItem("favorites", JSON.stringify(state.favorites));
+            console.log(localStorage.getItem("favorites"))
+
         }
 
 
     }, extraReducers: (builder) => {
-        builder.addCase(getAllMovies.fulfilled, (state: MovieState, action: PayloadAction<Movie[]>) => {
-            state.loading = false;
-            state.movies = action.payload;
-        })
+        builder.addCase(getAllMovies.pending, (state) => {
+            console.log("PENDING ÇALIŞTI !!!");
 
+            state.loading = true
+            state.error = null
+        }).addCase(getAllMovies.fulfilled, (state, action: PayloadAction<Movie[]>) => {
+            state.movies = action.payload
+            state.loading = false
+        }).addCase(getAllMovies.rejected, (state, action) => {
+            state.loading = false
+            state.error = action.payload as string
+        })
     }
 })
 
-export const { } = movieSlice.actions
+export const { addMovieToFavorite } = movieSlice.actions
 
 export default movieSlice.reducer

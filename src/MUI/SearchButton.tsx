@@ -5,8 +5,10 @@ import Stack from '@mui/material/Stack';
 
 
 export default function FooterNav() {
+
+
     return (
-        <BottomNavigation
+        <BottomNavigation 
             showLabels
             sx={{
                 position: "fixed",
@@ -17,7 +19,8 @@ export default function FooterNav() {
             }}
         >
             <Stack spacing={2}>
-                <Pagination count={12} color='primary' />
+                <Pagination count={12} onChange={(e)=>{
+                }} color='primary' />
             </Stack>
         </BottomNavigation>
     );
