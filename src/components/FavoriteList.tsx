@@ -14,7 +14,7 @@ export default function FavoriteMovies() {
         dispatch(deleteMovieFromFavorite(id))
         setOpen(true)
     }
-    const handleClose = (e: React.SyntheticEvent | Event, reason?: string) => {
+    const handleClose = (_e: React.SyntheticEvent | Event, reason?: string) => {
         if (reason === 'clickaway') return;
         setOpen(false);
     };

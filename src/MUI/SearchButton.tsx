@@ -1,5 +1,4 @@
 import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 
@@ -19,7 +18,7 @@ export default function FooterNav() {
             }}
         >
             <Stack spacing={2}>
-                <Pagination count={12} onChange={(e)=>{
+                <Pagination count={12} onChange={(_e)=>{
                 }} color='primary' />
             </Stack>
         </BottomNavigation>
