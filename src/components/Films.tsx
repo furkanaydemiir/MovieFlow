@@ -14,7 +14,7 @@ function Films({ movie }: any) {
     const navigate = useNavigate()
     const [open, setOpen] = useState<boolean>(false)
     const resimYolu = "https://image.tmdb.org/t/p/w1280";
-    const { adult, backdrop_path, genre_ids, id, original_language, original_title, overview, popularity, poster_path, relase_date, title, video, vote_average, vote_count } = movie
+    const {  backdrop_path,  id,  original_title, overview, vote_average,  } = movie
     const dispatch = useDispatch<AppDispatch>()
     const handleFavoriteClick = () => {
         dispatch(addMovieToFavorite(id))

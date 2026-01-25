@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import Header from '../MUI/Header'
 import { useSelector } from "react-redux"
-import type { RootState, AppDispatch } from "../redux/store";
+import type { RootState,  } from "../redux/store";
 import { Button } from "@mui/material";
 
 function Details() {
