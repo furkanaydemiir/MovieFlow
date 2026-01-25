@@ -6,7 +6,7 @@ export interface Movie {
   overview:string;
   backdrop_path:string;
   vote_average:number;
-
+  
 }
 
 

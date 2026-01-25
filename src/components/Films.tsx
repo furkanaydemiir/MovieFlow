@@ -4,14 +4,14 @@ import { FaStarHalf } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa6";
 
 import '../App.css'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import type { AppDispatch } from '../redux/store';
 import { addMovieToFavorite } from '../redux/movieSlice';
-import type { RootState, } from "../redux/store";
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Films({ movie }: any) {
-    const favorites = useSelector((state: RootState) => state.movie.favorites)
+    const navigate = useNavigate()
     const [open, setOpen] = useState<boolean>(false)
     const resimYolu = "https://image.tmdb.org/t/p/w1280";
     const { adult, backdrop_path, genre_ids, id, original_language, original_title, overview, popularity, poster_path, relase_date, title, video, vote_average, vote_count } = movie
@@ -27,7 +27,7 @@ function Films({ movie }: any) {
     return (
         <div className='movie-wrapper' style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
             <div style={{
-                width: "300px",
+                width: "350px",
                 border: "1px solid #ddd",
                 borderRadius: "12px",
                 margin: "15px",
@@ -63,7 +63,9 @@ function Films({ movie }: any) {
                         {original_title} Favorilere Eklendi!
                     </Alert>
                 </Snackbar>
-                <Button variant='outlined'>
+                <Button
+                onClick={()=>navigate("/details/"+id)}
+                variant='outlined'>
                     Detaylı Göster
                 </Button>
                 </div>

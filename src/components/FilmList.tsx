@@ -8,7 +8,7 @@ function FilmList() {
 
 
     const dispatch = useDispatch<AppDispatch>()
-
+    
     const movies = useSelector((state: RootState) => state.movie.movies)
     const loading = useSelector((state:RootState)=>state.movie.loading)
 
@@ -26,7 +26,7 @@ function FilmList() {
           
         <div style={{
             display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center",
-            padding: "20px", backgroundColor: "#f4f4f4",
+            padding: "20px", backgroundColor: "#f4f4f4", width:"100%"
 
         }}>
             {
