@@ -47,7 +47,7 @@ function Films({ movie }: any) {
                 <div style={{ display: "flex", flexDirection: "row" }}>
                     <p>Puan:{vote_average}</p>
                     <p>{
-                        vote_average >= 7.5 ? <FaStar /> : vote_average < 5.5 ? <FaRegStar /> : <FaStarHalf />
+                        vote_average >= 8 ? <FaStar /> : vote_average < 5.5 ? <FaRegStar /> : <FaStarHalf />
                     }</p>
                     <div>
                     </div>
@@ -56,11 +56,11 @@ function Films({ movie }: any) {
                 <Button 
                 
                     onClick={handleFavoriteClick}
-                    variant='outlined'>Favoriye Ekle
+                    variant='outlined'>İzleme Listesine Ekle
                 </Button>
                 <Snackbar open={open} autoHideDuration={2500} onClose={handleClose} anchorOrigin={{vertical:"top",horizontal:"center"}}>
                     <Alert onClose={handleClose} severity='success' variant='filled' sx={{width:"100%"}}>
-                        {original_title} Favorilere Eklendi!
+                        {original_title} İzleme Listesine Eklendi
                     </Alert>
                 </Snackbar>
                 <Button

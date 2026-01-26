@@ -13,12 +13,15 @@ export default function ButtonAppBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Movie Flow
           </Typography>
+           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Popüler Filmleri Takip Edin
+          </Typography>
           <Button
 
             color="inherit"><Link to="/" style={{textDecoration:"none",color:"inherit"}}>Ana Sayfa</Link></Button>
           <Button
  
-            color="inherit"><Link to="/favorites" style={{textDecoration:"none",color:"inherit"}}>Favorilerim</Link></Button>
+            color="inherit"><Link to="/favorites" style={{textDecoration:"none",color:"inherit"}}>İzleme Listem</Link></Button>
         </Toolbar>
 
       </AppBar>

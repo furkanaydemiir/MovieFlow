@@ -13,7 +13,7 @@ function FilmList() {
     const loading = useSelector((state:RootState)=>state.movie.loading)
 
     useEffect(() => {
-        dispatch(getAllMovies())
+        dispatch(getAllMovies(1))
     }, [])
     console.log(movies)
  

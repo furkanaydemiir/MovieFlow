@@ -24,10 +24,10 @@ export default function FavoriteMovies() {
 
         <div>
             <Header />
-            <h1>Favori Filmlerim</h1>
+            <h1>İzleme Listem</h1>
             <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", width: "100%", justifyContent: "center" }}>
 
-                {favoriteMovies.length === 0 && <p>Favori film yok.</p>}
+                {favoriteMovies.length === 0 && <p>İzleme Listesi boş.</p>}
 
                 {favoriteMovies.map(movie => (
                     <div key={movie.id} style={{
@@ -49,7 +49,7 @@ export default function FavoriteMovies() {
                             }} variant="outlined" color="error">Kaldır</Button>
                             <Snackbar open={open} autoHideDuration={2500} onClose={handleClose} anchorOrigin={{ vertical: "top", horizontal: "center" }}>
                                 <Alert onClose={handleClose} severity='error' variant='filled' sx={{ width: "100%" }}>
-                                     Favorilerden Kaldırıldı
+                                     İzleme Listesinden Kaldırıldı
                                 </Alert>
                             </Snackbar>
                         </div>

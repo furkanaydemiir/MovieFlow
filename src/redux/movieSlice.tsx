@@ -3,15 +3,15 @@ import axios from "axios";
 import type { Movie } from "../types/Types";
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY
 const BASE_URL = "https://api.themoviedb.org/3/movie/popular"
-
-export const getAllMovies = createAsyncThunk<Movie[]>(
+export const getAllMovies = createAsyncThunk<Movie[],number>(
     "films/getAllMovies",
-    async (_, thunkAPI) => {
+    async (page=1, thunkAPI) => {
         try {
-            const response = await axios.get(`${BASE_URL}`, {
+            const response = await axios.get(`${BASE_URL}?apikey=${API_KEY}&language=en-US&page=${page}`, {
                 params: {
                     api_key: API_KEY,
-                    language: 'en-EN'
+                    language: 'en-EN',
+                    page:page
                 }
             });
             return response.data.results;
@@ -27,13 +27,16 @@ interface MovieState {
     favorites: Movie[];
     loading: boolean;
     error: string | null;
+    page: number
 }
 const initialState: MovieState = {
     movies: [],
-    favorites: JSON.parse(localStorage.getItem("favorites")||"[]"),
+    favorites: JSON.parse(localStorage.getItem("favorites") || "[]"),
     loading: false,
     error: null,
+    page: 1
 };
+
 export const movieSlice = createSlice({
     name: 'films',
     initialState,
@@ -45,16 +48,18 @@ export const movieSlice = createSlice({
 
             const isExist = state.favorites.some(f => f.id === newid)
             if (isExist) return;
-        
+
             state.favorites.push(movie)
             localStorage.setItem("favorites", JSON.stringify(state.favorites));
             console.log(localStorage.getItem("favorites"))
 
-        },deleteMovieFromFavorite:(state,action)=>{
+        }, deleteMovieFromFavorite: (state, action) => {
             const newid = action.payload
-            const newFavorites = state.favorites.filter(m=>m.id!==newid);
-           state.favorites = newFavorites
-            localStorage.setItem("favorites",JSON.stringify(newFavorites));
+            const newFavorites = state.favorites.filter(m => m.id !== newid);
+            state.favorites = newFavorites
+            localStorage.setItem("favorites", JSON.stringify(newFavorites));
+        }, fillPage: (state, action) => {
+            state.page = action.payload
         }
 
 
@@ -74,6 +79,7 @@ export const movieSlice = createSlice({
     }
 })
 
-export const { addMovieToFavorite,deleteMovieFromFavorite } = movieSlice.actions
+export const { addMovieToFavorite, deleteMovieFromFavorite, fillPage } = movieSlice.actions
 
 export default movieSlice.reducer
+
