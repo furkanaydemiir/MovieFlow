@@ -4,6 +4,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
+import logo from '../img//Ejderha_Bilisim_Teknolojisi_Logosu.png'
 export default function ButtonAppBar() {
   return (
     <Box >
@@ -11,6 +12,7 @@ export default function ButtonAppBar() {
         <Toolbar>
 
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <img src={logo} alt="" />
             Movie Flow
           </Typography>
            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
