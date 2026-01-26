@@ -44,9 +44,9 @@ export default function FavoriteMovies() {
 
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                             <p>Puan: {movie.vote_average}</p>
-                            <Button onClick={() => {
+                            <Button className="button" onClick={() => {
                                  handleFavoriteClick(movie.id)
-                            }} variant="outlined" color="error">Kaldır</Button>
+                            }} variant="contained" color="error">Kaldır</Button>
                             <Snackbar open={open} autoHideDuration={2500} onClose={handleClose} anchorOrigin={{ vertical: "top", horizontal: "center" }}>
                                 <Alert onClose={handleClose} severity='error' variant='filled' sx={{ width: "100%" }}>
                                      İzleme Listesinden Kaldırıldı

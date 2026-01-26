@@ -26,7 +26,7 @@ function FilmList() {
           
         <div style={{
             display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center",
-            padding: "20px", backgroundColor: "#f4f4f4", width:"100%"
+            padding: "20px", backgroundColor: "#f4f4f4", width:"100%",
 
         }}>
             {

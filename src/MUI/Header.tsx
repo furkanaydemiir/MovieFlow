@@ -4,17 +4,15 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
-import logo from '../img//Ejderha_Bilisim_Teknolojisi_Logosu.png'
 export default function ButtonAppBar() {
   return (
     <Box >
       <AppBar position="static">
         <Toolbar>
 
-           <img style={{width:"150px"}} src={logo} alt="" />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            
-            Movie Flow
+
+            DragonFlow
           </Typography>
            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Popüler Filmleri Takip Edin

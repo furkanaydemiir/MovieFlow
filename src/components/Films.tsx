@@ -24,54 +24,52 @@ function Films({ movie }: any) {
         if (reason === 'clickaway') return;
         setOpen(false); 
     };
-    return (
-        <div className='movie-wrapper' style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <div style={{
-                width: "350px",
-                border: "1px solid #ddd",
-                borderRadius: "12px",
-                margin: "15px",
-                boxShadow: "0px 4px 8px rgba(0,0,0,0.1)",
-                backgroundColor: "#fff",
-                height: "450px",
-                overflow: "auto"
-            }}>
-
-                <img style={{
-                    width: '100%',
-                    height: '180px',
-                    objectFit: 'cover'
-                }} src={resimYolu + backdrop_path} alt="" />
-                <h3>{original_title}</h3>
-                <p>{overview}</p>
-                <div style={{ display: "flex", flexDirection: "row" }}>
-                    <p>Puan:{vote_average}</p>
-                    <p>{
-                        vote_average >= 8 ? <FaStar /> : vote_average < 5.5 ? <FaRegStar /> : <FaStarHalf />
-                    }</p>
-                    <div>
-                    </div>
-                </div>
-                <div className='button-div'>
-                <Button 
+   return (
+        <div className='movie-card'>
+            <img 
+                className='movie-image'
+                src={resimYolu + backdrop_path} 
+                alt={original_title} 
+            />
+            
+            <div className='movie-content'>
+                <h2 className='movie-title'>{original_title}</h2>
+                <p className='movie-overview'>{overview}</p>
                 
-                    onClick={handleFavoriteClick}
-                    variant='outlined'>İzleme Listesine Ekle
-                </Button>
-                <Snackbar open={open} autoHideDuration={2500} onClose={handleClose} anchorOrigin={{vertical:"top",horizontal:"center"}}>
-                    <Alert onClose={handleClose} severity='success' variant='filled' sx={{width:"100%"}}>
-                        {original_title} İzleme Listesine Eklendi
-                    </Alert>
-                </Snackbar>
-                <Button
-                onClick={()=>navigate("/details/"+id)}
-                variant='outlined'>
-                    Detaylı Göster
-                </Button>
+                <div className='movie-rating'>
+                    <span>Puan: {vote_average.toFixed(1)}</span>
+                    <span className='star-icon'>
+                        {vote_average >= 8 ? <FaStar color="#FFD700" /> : 
+                         vote_average < 5.5 ? <FaRegStar color="#FFD700" /> : 
+                         <FaStarHalf color="#FFD700" />}
+                    </span>
                 </div>
-            </div >
-        </div >
+            </div>
+
+            <div className='button-group'>
+                <Button 
+                    className='button'
+                    onClick={handleFavoriteClick}
+                    variant='contained' 
+                    size="small"
+                    color="primary">
+                    Listeye Ekle
+                </Button>
+                <Button
+                    className='button'
+                    onClick={() => navigate("/details/" + id)}
+                    variant='outlined'
+                    size="small">
+                    Detaylar
+                </Button>
+            </div>
+
+            <Snackbar open={open} autoHideDuration={2500} onClose={handleClose} anchorOrigin={{vertical:"top", horizontal:"center"}}>
+                <Alert onClose={handleClose} severity='success' variant='filled'>
+                    {original_title} eklendi!
+                </Alert>
+            </Snackbar>
+        </div>
     )
 }
-
 export default Films
