@@ -11,8 +11,9 @@ export default function ButtonAppBar() {
       <AppBar position="static">
         <Toolbar>
 
+           <img style={{width:"150px"}} src={logo} alt="" />
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <img src={logo} alt="" />
+            
             Movie Flow
           </Typography>
            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
