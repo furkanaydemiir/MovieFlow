@@ -25,7 +25,7 @@ export default function FooterNav() {
             }}
         >
             <Stack spacing={2}  >
-                <Pagination count={100} onChange={(_e,value)=>{
+                <Pagination count={200} onChange={(_e,value)=>{
                 setPage(value)
                 } } color='primary'/>
                 

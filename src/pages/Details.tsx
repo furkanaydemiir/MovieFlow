@@ -38,7 +38,7 @@ function Details() {
                                 key={movie.id}>
                                 <div style={{ width: "100%", display: "flex", justifyContent: "center", flexDirection: "column" }} >
                                     <h1 style={{ color: "lightgrey" }}>{movie.title}</h1>
-                                    <h3 style={{ color: "white" }}>{movie.overview}</h3>
+                                    <h3 style={{ color: "Background" }}>{movie.overview}</h3>
                                     <h3 style={{ color: "white" }}>IMDB:{movie.vote_average}</h3>
                                     <Button style={{width:"350px"}}
 

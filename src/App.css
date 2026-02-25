@@ -1,42 +1,49 @@
-body{
-  margin: 0;
-  padding: 0;
-  object-fit: contain;
+body {
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
-.film-card{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-   border: 5px solid black;
+
+.film-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 5px solid black;
 }
+
 .search-button-wrapper {
-  position: fixed !important;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 12px;
-  background: #fff;
-  z-index: 99999;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+    position: fixed !important;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+    background: #fff;
+    z-index: 99999;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
 }
-.button-div{
- margin-left: 20px;
- 
+
+.button-div {
+    margin-left: 20px;
+
 }
+
 /* Kartın ana taşıyıcısı */
 .movie-card {
-    width: 320px;
-    height: 500px; 
+    flex:1 1 300px;
+    max-width: 320px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     border-radius: 12px;
     background-color: #fff;
-    box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     overflow: hidden;
-    margin: 15px;
+    box-sizing: border-box;
 }
 
 .movie-image {
@@ -49,13 +56,13 @@ body{
     padding: 15px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 
 .movie-title {
     font-size: 1.2rem;
     margin-bottom: 10px;
- 
+
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -67,7 +74,7 @@ body{
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    overflow: hidden; 
+    overflow: hidden;
     margin-bottom: 10px;
 }
 
@@ -76,7 +83,7 @@ body{
     align-items: center;
     gap: 8px;
     font-weight: bold;
-    margin-top: auto; 
+    margin-top: auto;
 }
 
 .button-group {
@@ -88,9 +95,16 @@ body{
 }
 
 .button-group button {
-    flex: 1; 
+    flex: 1;
     font-size: 0.75rem;
 }
-.button:hover{
-  transform: scale(1.1);
+
+.button:hover {
+    transform: scale(1.1);
+}
+@media(max-width:768px){
+    .mobil-hidden{
+        display: none;
+    }
+   
 }
